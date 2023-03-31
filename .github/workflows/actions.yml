@@ -1,9 +1,13 @@
 name: Testing actions
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: curl google.com
+      - run: curl bing.com
+      - run: curl launchdarkly.com
